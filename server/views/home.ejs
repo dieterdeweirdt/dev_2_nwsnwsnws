@@ -1,0 +1,13 @@
+
+
+
+<div class="news_list">
+
+    <% news.forEach( (item) => { %>
+        <a href="/nieuws/<%= item.slug %>" class="news_item">
+            <span><%= item.title %></span>
+            <img src="images/<%= item.image %>" alt="nwsnwsnws">
+        </a>
+    <% } ) %>
+
+</div>
