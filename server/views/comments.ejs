@@ -1,0 +1,11 @@
+<h1>Comments</h1>
+
+<% if( comments.length == 0 ) { %>
+    <p>Er zijn geen reacties</p>
+<% } else { %>
+    <% comments.forEach( (comment) => { %>
+        <p><%= comment.content %></p>
+        <p>Geplaatst door <%= comment.author %> op <%= comment.created_at %></p>
+    <% } ) %>
+<% } %>
+

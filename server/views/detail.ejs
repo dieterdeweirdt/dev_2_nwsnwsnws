@@ -10,10 +10,10 @@
     
     <div class="comments_list">
         <h2>Reacties</h2>
-        <form>
+        <form method="post">
             <label>
                 Jouw naam<br>
-                <input type="text" name="info" id="info" placeholder="Jouw naam">
+                <input type="text" name="author" id="info" placeholder="Jouw naam">
             </label>
             <label>
                 Jouw reactie<br>
@@ -21,17 +21,16 @@
             </label>
             <button type="submit">Reactie plaatsen</button>
         </form>
-        <div class="comment">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod, voluptates, quae, quibusdam quia quos</p>
-            <div class="info">Jantje &bull; 3 maart 2024 19:35</div>
-        </div>
-        <div class="comment">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod, voluptates, quae, quibusdam quia quos</p>
-            <div class="info">Klaasje &bull; 3 maart 2024 9:17</div>
-        </div>
-        <div class="comment">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod, voluptates, quae, quibusdam quia quos</p>
-            <div class="info">Pietje &bull; 1 maart 2024 14:54</div>
-        </div>
+
+        <% if( comments.length == 0 ) { %>
+            <p>Er zijn geen reacties</p>
+        <% } else { %>
+            <% comments.forEach( (comment) => { %>
+                <div class="comment">
+                    <p><%= comment.content %></p>
+                    <div class="info">Geplaatst door <%= comment.author %> op <%= comment.created_at %></div>
+                </div>
+            <% } ) %>
+        <% } %>
     </div>
 </div>

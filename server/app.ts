@@ -7,6 +7,9 @@ import expressLayouts from "express-ejs-layouts";
 const app:Application = express();
 const PORT:number = 3000;
 
+//Middleware om onze post request in de body te encoderen
+app.use(express.urlencoded({ extended: true }));
+
 //Template-engine configureren
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views" ))
